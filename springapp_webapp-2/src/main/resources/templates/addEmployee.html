@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action = "@{/saveEmployee}" th:object="${employee}" method="post">
+	<label>Name:</lable>
+	<input type = "text" th:field = "*{name}" /><br><br>
+
+	<lable>Email:</lable>
+	<input type = "text" th:field = "*{email}" /><br><br>
+
+	<button type = "submit"> Save Employee</button>
+</form>
+</body>
+</html>
