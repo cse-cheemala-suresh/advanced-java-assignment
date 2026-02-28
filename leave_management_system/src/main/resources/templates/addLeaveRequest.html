@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Leave Request</title>
+</head>
+<body>
+<h1>Apply leave</h1>
+<form th:action="@{/saveLeaveRequest}" th:object="${leaveRequest}" method="post">
+	<input type="hidden" th:field="*{requestId}"/>
+	
+	 <!-- Employee dropdown -->
+    <label>Employee</label>
+    <select th:field="*{employeeId}" required>
+        <option value="">-- Select Employee --</option>
+        <option th:each="e : ${employees}"
+                th:value="${e.employeeId}"
+                th:text="${e.name}">
+        </option>
+    </select>
+    <br><br>
+
+    <!-- Leave Type dropdown -->
+    <label>Leave Type</label>
+    <select th:field="*{leaveTypeId}" required>
+        <option value="">-- Select Leave Type --</option>
+        <option th:each="l : ${leaveTypes}"
+                th:value="${l.leaveId}"
+                th:text="${l.leaveName}">
+        </option>
+    </select>
+    <br><br>
+
+	<label>Start Date</label>
+	<input type="date" th:field="*{startDate}"/>
+	<label>End Date</label>
+	<input type="date" th:field="*{endDate}"/>
+
+	<button type = "submit"> Apply Leave </button>
+</form>
+</body>
+</html>

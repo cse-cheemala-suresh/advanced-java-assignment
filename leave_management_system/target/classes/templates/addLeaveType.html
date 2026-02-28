@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Leave type</title>
+</head>
+<body>
+<h1>Leave type</h1>
+<form th:action = "@{/saveLeaveType}" th:object = "${leaveTypeForm}" method = "post">
+	<input type = "hidden" th:field = "*{leaveId}"/>	
+
+	<label>Leave Name</label>
+	<input type = "text" th:field = "*{leaveName}"/>
+
+	<label>Max Days Allowed</label>
+	<input type = "text" th:field = "*{maxAllowedDays}"/>
+	
+	<button type = "submit"> Save Leave Type </button>
+</form>
+</body>
+</html>

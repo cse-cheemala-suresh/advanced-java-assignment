@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Employee</title>
+</head>
+<body>
+<h1>Add Employee</h1>
+<form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+	<input type = "hidden" th:field="*{employeeId}"/>
+
+	<label>Name</label>
+	<input type = "text" th:field="*{name}"/>
+
+	<label>Email</label>
+	<input type = "text" th:field="*{email}"/>
+
+	<label>Department</label>
+	<input type = "text" th:field="*{department}"/>
+
+	<label>Joining Date</label>
+	<input type = "date" th:field="*{joiningDate}"/>
+
+	<button type = "submit"> Save Employee </button>
+</form>
+</body>
+</html>

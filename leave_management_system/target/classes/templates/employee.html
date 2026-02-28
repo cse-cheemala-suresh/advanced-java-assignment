@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employess</title>
+</head>
+<body>
+<h1>Employee Details</h1>
+<table border = "1">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Department</th>
+		<th>Joining Date</th>
+		<th>Action</th>
+	</tr>
+	<tr th:each = "emp: ${employees}">
+		<td th:text="${emp.employeeId}"></td>
+		<td th:text="${emp.name}"></td>
+		<td th:text="${emp.email}"></td>
+		<td th:text="${emp.department}"></td>
+		<td th:text="${emp.joiningDate}"></td>
+		<td>
+			<a th:href = "@{/updateEmployee/{id}(id=${emp.employeeId})}">Edit</a>
+
+			<a th:href = "@{/deleteEmployee/{id}(id=${emp.employeeId})}"
+				onclick = "return confirm('Are you sure?')">
+				Delete
+				</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
